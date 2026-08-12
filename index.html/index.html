@@ -308,7 +308,7 @@ canvas#confetti-canvas{position:fixed;inset:0;z-index:60;pointer-events:none}
   </div>
 
   <div class="hero-card">
-    <img src="images/ritu-1.jpeg" alt="Ritu Ma'am">
+    <img src="ritu-1.jpeg" alt="Ritu Ma'am">
     <div class="floating">📚 The best teachers leave footprints in our hearts.</div>
   </div>
 </section>
@@ -377,16 +377,30 @@ canvas#confetti-canvas{position:fixed;inset:0;z-index:60;pointer-events:none}
   </div>
   <div class="gallery">
     <figure class="reveal">
-      <img src="images/ritu-1.jpeg" alt="Ritu Ma'am smiling">
+      <img src="ritu-1.jpeg" alt="Ritu Ma'am smiling">
       <figcaption>Always graceful ✨</figcaption>
     </figure>
     <figure class="reveal">
-      <img src="images/ritu-2.jpeg" alt="Ritu Ma'am at a celebration">
+      <img src="ritu-2.jpeg" alt="Ritu Ma'am at a celebration">
       <figcaption>Celebration mode 🎉</figcaption>
     </figure>
   </div>
 </section>
 
+<section class="section dark" id="jokes">
+  <div class="section-title reveal">
+    <div class="small">Because birthdays need giggles too</div>
+    <h2>A joke for you, Ma'am 😄</h2>
+    <p>Purely for entertainment — please don't deduct marks for these.</p>
+  </div>
+  <div class="joke-box reveal">
+    <div class="tag">Joke <span id="jokeNum">1</span> / <span id="jokeTotal"></span></div>
+    <p id="jokeText"></p>
+    <div class="joke-nav">
+      <button class="joke-btn" onclick="prevJoke()">← Previous</button>
+      <button class="joke-btn" onclick="nextJoke()">Next Joke →</button>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="memories">

@@ -1,586 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday, Ritu Ma'am! 💗</title>
-<meta name="description" content="A special birthday celebration for an amazing teacher.">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A special birthday celebration for Ritu Ma'am." />
+    <title>Happy Birthday, Ritu Ma'am! 💗</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="balloon-field" aria-hidden="true"></div>
 
-:root{
-  --navy:#101a2d;
-  --navy2:#17243b;
-  --pink:#e86b88;
-  --pink2:#f7b6c5;
-  --cream:#fff8f5;
-  --gold:#d9ae6b;
-  --text:#20263a;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Poppins,sans-serif;
-  color:var(--text);
-  background:linear-gradient(180deg,#fff8f5,#ffeef2 48%,#fff8f5);
-  overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit}
-:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
-
-/* ---------- ambient balloons ---------- */
-.balloon-field{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.balloon{
-  position:absolute;bottom:-140px;width:46px;height:58px;border-radius:50% 50% 50% 50%/58% 58% 42% 42%;
-  opacity:.5;animation:rise linear infinite;
-}
-.balloon:after{content:"";position:absolute;left:50%;top:100%;width:1px;height:38px;background:rgba(120,90,70,.35);transform:translateX(-50%)}
-@keyframes rise{
-  0%{transform:translateY(0) translateX(0) rotate(-4deg)}
-  50%{transform:translateY(-55vh) translateX(30px) rotate(4deg)}
-  100%{transform:translateY(-115vh) translateX(-20px) rotate(-4deg)}
-}
-
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:20;
-  height:70px;padding:0 6%;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,248,245,.82);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(217,174,107,.22);
-}
-.logo{
-  font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:700;
-}
-.logo span{color:var(--pink)}
-.navlinks{display:flex;gap:28px;font-size:14px}
-.navlinks a{transition:.25s;position:relative}
-.navlinks a:hover{color:var(--pink)}
-.navbtn{
-  background:var(--pink);color:white;padding:11px 20px;border-radius:30px;
-  box-shadow:0 8px 25px rgba(232,107,136,.25);
-}
-
-.hero{
-  min-height:100vh;padding:120px 6% 60px;
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:45px;
-  position:relative;z-index:2;
-}
-.hero:before,.hero:after{
-  content:"";position:absolute;border-radius:50%;filter:blur(3px);opacity:.55;z-index:-1
-}
-.hero:before{width:260px;height:260px;background:#ffd3df;left:-80px;top:130px}
-.hero:after{width:320px;height:320px;background:#fff0c9;right:-110px;bottom:30px}
-
-.kicker{color:var(--pink);font-weight:600;letter-spacing:3px;text-transform:uppercase;font-size:12px}
-h1{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(64px,8vw,112px);line-height:.82;margin:20px 0;
-}
-h1 span{color:var(--pink)}
-.script{font-family:"Great Vibes",cursive;color:#bd8750;font-size:42px}
-.hero p{max-width:560px;margin:22px 0;color:#5f6372;line-height:1.8}
-.cta{
-  display:inline-flex;gap:10px;align-items:center;
-  background:var(--pink);color:white;padding:15px 25px;border-radius:35px;
-  box-shadow:0 12px 30px rgba(232,107,136,.3);
-  transition:.25s;cursor:pointer;border:0;font:inherit
-}
-.cta:hover{transform:translateY(-3px);box-shadow:0 16px 35px rgba(232,107,136,.38)}
-
-/* ---------- hero photo card ---------- */
-.hero-card{
-  position:relative;border-radius:30px;overflow:hidden;
-  box-shadow:0 25px 70px rgba(40,35,50,.18);
-  border:8px solid rgba(255,255,255,.7);
-  aspect-ratio:4/5;
-  background:linear-gradient(160deg,#2a3a5c,#101a2d 65%);
-  display:flex;align-items:center;justify-content:center;
-}
-.hero-card svg{width:100%;height:100%}
-.hero-card img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
-
-/* ---------- photo gallery ---------- */
-.gallery{
-  max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:22px
-}
-.gallery figure{
-  margin:0;border-radius:24px;overflow:hidden;position:relative;
-  box-shadow:0 18px 45px rgba(50,35,45,.12);border:6px solid #fff;
-  transition:.35s
-}
-.gallery figure:hover{transform:translateY(-6px) rotate(-1deg)}
-.gallery figure:nth-child(2):hover{transform:translateY(-6px) rotate(1deg)}
-.gallery img{width:100%;height:340px;object-fit:cover;display:block}
-.gallery figcaption{
-  position:absolute;bottom:0;left:0;right:0;padding:16px 18px;
-  background:linear-gradient(0deg,rgba(16,26,45,.85),transparent);
-  color:#fff;font-family:"Cormorant Garamond",serif;font-size:19px
-}
-@media(max-width:700px){.gallery{grid-template-columns:1fr}}
-
-/* ---------- jokes section ---------- */
-.joke-box{
-  max-width:720px;margin:auto;background:white;border-radius:28px;
-  padding:44px;text-align:center;box-shadow:0 18px 50px rgba(50,35,45,.1);
-  border:1px solid #f6dbe3;position:relative
-}
-.joke-box .tag{color:var(--pink);letter-spacing:2px;text-transform:uppercase;font-size:12px;font-weight:600}
-.joke-box p{font-family:"Cormorant Garamond",serif;font-size:26px;line-height:1.5;margin:18px 0;min-height:110px;display:flex;align-items:center;justify-content:center}
-.joke-nav{display:flex;gap:14px;justify-content:center;margin-top:10px}
-.joke-btn{
-  background:var(--navy);color:#fff;border:0;padding:12px 24px;border-radius:30px;
-  cursor:pointer;font:inherit;font-size:14px;transition:.25s
-}
-.joke-btn:hover{background:var(--pink);transform:translateY(-2px)}
-.floating{
-  position:absolute;bottom:18px;left:18px;right:18px;
-  background:rgba(16,26,45,.88);color:white;padding:13px 17px;border-radius:16px;
-  font-size:12px;backdrop-filter:blur(10px)
-}
-
-.section{padding:90px 6%;position:relative;z-index:2}
-.dark{
-  background:linear-gradient(135deg,var(--navy),#1e2c46);
-  color:white;
-}
-.section-title{text-align:center;max-width:760px;margin:0 auto 45px}
-.section-title .small{color:var(--pink2);letter-spacing:3px;text-transform:uppercase;font-size:12px}
-.section-title h2{
-  font-family:"Cormorant Garamond",serif;font-size:clamp(42px,5vw,64px);margin:10px 0
-}
-.section-title p{color:#aeb6c6;line-height:1.8}
-.section:not(.dark) .section-title p{color:#7c8092}
-
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease}
-.reveal.in{opacity:1;transform:translateY(0)}
-
-.cards{
-  max-width:1100px;margin:auto;display:grid;
-  grid-template-columns:repeat(3,1fr);gap:20px
-}
-.card{
-  padding:30px;border-radius:24px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.1);
-  transition:.3s
-}
-.card:hover{transform:translateY(-8px);background:rgba(255,255,255,.1)}
-.icon{
-  width:55px;height:55px;border-radius:50%;display:grid;place-items:center;
-  background:var(--pink);font-size:24px;margin-bottom:20px
-}
-.card h3{font-family:"Cormorant Garamond",serif;font-size:28px;margin-bottom:10px}
-.card p{color:#bfc6d4;line-height:1.8;font-size:14px}
-
-.wishes{
-  max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1.2fr;
-  gap:30px;align-items:stretch
-}
-.wish-list{
-  background:white;border-radius:28px;padding:38px;
-  box-shadow:0 15px 50px rgba(50,35,45,.08)
-}
-.wish-list h3,.note h3{
-  font-family:"Cormorant Garamond",serif;font-size:35px;margin-bottom:20px
-}
-.wish{
-  display:flex;gap:14px;align-items:center;padding:15px 0;
-  border-bottom:1px solid #f2dfe4
-}
-.wish:last-child{border-bottom:0}
-.heart{color:var(--pink);font-size:20px}
-.note{
-  background:linear-gradient(145deg,#ffd7e1,#f7b2c4);
-  border-radius:28px;padding:45px;position:relative;overflow:hidden
-}
-.note:after{content:"🌹";position:absolute;right:25px;bottom:15px;font-size:70px;opacity:.35}
-.note p{line-height:1.9;color:#633f4a}
-.signature{font-family:"Great Vibes";font-size:38px;color:#a85c70;margin-top:25px}
-
-/* ---------- memory book (flip cards, new signature element) ---------- */
-.memory-strip{
-  max-width:1100px;margin:0 auto;display:flex;gap:20px;overflow-x:auto;
-  padding:10px 4px 24px;scroll-snap-type:x mandatory
-}
-.memory-strip::-webkit-scrollbar{height:6px}
-.memory-strip::-webkit-scrollbar-thumb{background:var(--pink2);border-radius:10px}
-.mem-card{
-  flex:0 0 220px;height:280px;scroll-snap-align:start;perspective:1200px;cursor:pointer
-}
-.mem-inner{
-  position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d
-}
-.mem-card.flipped .mem-inner{transform:rotateY(180deg)}
-.mem-face{
-  position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:22px;text-align:center;box-shadow:0 15px 40px rgba(50,35,45,.12)
-}
-.mem-front{background:linear-gradient(150deg,#fff,#ffeef2);border:1px solid #f6dbe3}
-.mem-front .num{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--pink);letter-spacing:2px}
-.mem-front .emoji{font-size:44px;margin:14px 0}
-.mem-front .tap{font-size:11px;color:#9a94a0;text-transform:uppercase;letter-spacing:2px}
-.mem-back{background:linear-gradient(150deg,var(--navy),#25365a);color:#e9edf5;transform:rotateY(180deg)}
-.mem-back p{font-size:14px;line-height:1.7}
-
-.celebrate{
-  max-width:1100px;margin:auto;border-radius:30px;padding:55px;
-  background:linear-gradient(135deg,#101a2d,#243653);
-  color:white;text-align:center;position:relative;overflow:hidden
-}
-.celebrate:before{
-  content:"✨";position:absolute;font-size:120px;left:4%;top:-30px;opacity:.18
-}
-.celebrate:after{
-  content:"🎂";position:absolute;font-size:110px;right:4%;bottom:-30px;opacity:.35
-}
-.celebrate h2{font-family:"Cormorant Garamond";font-size:48px}
-.celebrate p{color:#bdc6d4;margin:10px 0 25px}
-
-footer{text-align:center;padding:45px 20px;color:#6f7180;position:relative;z-index:2}
-footer strong{color:var(--pink)}
-
-.modal{
-  position:fixed;inset:0;background:rgba(7,12,22,.78);
-  display:none;align-items:center;justify-content:center;z-index:50;
-  padding:20px;backdrop-filter:blur(8px)
-}
-.modal.show{display:flex}
-.modal-box{
-  max-width:520px;width:100%;background:var(--cream);border-radius:30px;
-  padding:42px;text-align:center;box-shadow:0 30px 100px rgba(0,0,0,.35);
-  animation:pop .45s ease
-}
-.modal-box .big{font-size:60px}
-.modal-box h2{font-family:"Cormorant Garamond";font-size:45px;margin:10px 0}
-.modal-box p{line-height:1.8;color:#666}
-.close{margin-top:22px;background:var(--navy);color:white;border:0;padding:12px 24px;border-radius:25px;cursor:pointer}
-
-canvas#confetti-canvas{position:fixed;inset:0;z-index:60;pointer-events:none}
-
-@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
-
-@media(max-width:850px){
-  .navlinks{display:none}
-  .hero{grid-template-columns:1fr;padding-top:110px}
-  .cards{grid-template-columns:1fr}
-  .wishes{grid-template-columns:1fr}
-  .hero-card{order:-1}
-  h1{font-size:72px}
-}
-
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
-}
-</style>
-</head>
-<body>
-
-<div class="balloon-field" id="balloonField" aria-hidden="true"></div>
-
-<nav>
-  <div class="logo">🌷 Happy Birthday<span>♥</span></div>
-  <div class="navlinks">
-    <a href="#home">Home</a>
-    <a href="#about">About You</a>
-    <a href="#gallery">Photos</a>
-    <a href="#wishes">Wishes</a>
-    <a href="#jokes">Jokes</a>
-    <a href="#celebrate">Celebration</a>
-  </div>
-  <a class="navbtn" href="#wishes">For You ♥</a>
-</nav>
-
-<main id="home">
-<section class="hero">
-  <div>
-    <div class="kicker">A special day for a special teacher</div>
-    <h1>Happy<br><span>Birthday</span></h1>
-    <div class="script">Dear Ritu Ma'am ♡</div>
-    <p>
-      Thank you for being more than just a teacher.
-      You inspire, guide, encourage and make learning a beautiful journey.
-      Today is all about celebrating <strong>you</strong>.
-    </p>
-    <button class="cta" onclick="openWish()">🎁 Open Your Birthday Wish</button>
-  </div>
-
-  <div class="hero-card">
-    <img src="images/ritu-1.jpeg" alt="Ritu Ma'am">
-    <div class="floating">📚 The best teachers leave footprints in our hearts.</div>
-  </div>
-</section>
-
-<section class="section dark" id="about">
-  <div class="section-title reveal">
-    <div class="small">Why you are special</div>
-    <h2>You are more than a teacher.</h2>
-    <p>Your kindness, patience and guidance make a difference every single day.</p>
-  </div>
-
-  <div class="cards">
-    <div class="card reveal">
-      <div class="icon">📖</div>
-      <h3>A Wonderful Teacher</h3>
-      <p>You make even difficult lessons feel possible and give every student a reason to keep trying.</p>
-    </div>
-    <div class="card reveal">
-      <div class="icon">💗</div>
-      <h3>A Patient Guide</h3>
-      <p>Your patience and understanding create a place where everyone can learn, grow and ask questions.</p>
-    </div>
-    <div class="card reveal">
-      <div class="icon">✨</div>
-      <h3>An Inspiration</h3>
-      <p>You teach much more than subjects—you teach confidence, kindness and the courage to dream.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="wishes">
-  <div class="section-title reveal">
-    <div class="small">Birthday wishes</div>
-    <h2>Wishing you a beautiful year ahead.</h2>
-    <p>May the happiness you bring to others return to you a hundred times over.</p>
-  </div>
-
-  <div class="wishes">
-    <div class="wish-list reveal">
-      <h3>My wishes for you 🌸</h3>
-      <div class="wish"><span class="heart">♥</span> Joy & happiness every day</div>
-      <div class="wish"><span class="heart">♥</span> Good health and peaceful moments</div>
-      <div class="wish"><span class="heart">♥</span> Success in everything you do</div>
-      <div class="wish"><span class="heart">♥</span> Beautiful memories with loved ones</div>
-      <div class="wish"><span class="heart">♥</span> Every dream coming true</div>
-    </div>
-
-    <div class="note reveal">
-      <h3>Happy Birthday, Ritu Ma'am! 💐</h3>
-      <p>
-        On your special day, I just want to say thank you.
-        Thank you for every lesson, every word of encouragement,
-        every smile and every little moment that made a difference.
-        May your birthday be as wonderful as the lives you touch.
-      </p>
-      <div class="signature">With lots of respect & love ♡</div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="gallery">
-  <div class="section-title reveal">
-    <div class="small">A few frames</div>
-    <h2>Ritu Ma'am 💕</h2>
-    <p>Every picture, a reason to smile.</p>
-  </div>
-  <div class="gallery">
-    <figure class="reveal">
-      <img src="images/ritu-1.jpeg" alt="Ritu Ma'am smiling">
-      <figcaption>Always graceful ✨</figcaption>
-    </figure>
-    <figure class="reveal">
-      <img src="images/ritu-2.jpeg" alt="Ritu Ma'am at a celebration">
-      <figcaption>Celebration mode 🎉</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section dark" id="jokes">
-  <div class="section-title reveal">
-    <div class="small">Because birthdays need giggles too</div>
-    <h2>A joke for you, Ma'am 😄</h2>
-    <p>Purely for entertainment — please don't deduct marks for these.</p>
-  </div>
-  <div class="joke-box reveal">
-    <div class="tag">Joke <span id="jokeNum">1</span> / <span id="jokeTotal"></span></div>
-    <p id="jokeText"></p>
-    <div class="joke-nav">
-      <button class="joke-btn" onclick="prevJoke()">← Previous</button>
-      <button class="joke-btn" onclick="nextJoke()">Next Joke →</button>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="memories">
-  <div class="section-title reveal">
-    <div class="small">A little memory book</div>
-    <h2>Tap a card to open it.</h2>
-    <p>Five small thank-yous, one for every reason you're unforgettable.</p>
-  </div>
-  <div class="memory-strip" id="memoryStrip"></div>
-</section>
-
-<section class="section" id="celebrate">
-  <div class="celebrate reveal">
-    <h2>A Little Celebration Just For You! 🎂</h2>
-    <p>Take a moment, make a wish and enjoy your special day.</p>
-    <button class="cta" onclick="openWish()">▶ Play Birthday Surprise</button>
-  </div>
-</section>
-</main>
-
-<footer>
-  Made with 💗 specially for an amazing teacher.<br>
-  <strong>Happy Birthday, Ritu Ma'am!</strong>
-</footer>
-
-<div class="modal" id="modal" onclick="if(event.target===this)closeWish()">
-  <div class="modal-box">
-    <div class="big">🎂🌷✨</div>
-    <h2>Happy Birthday, Ritu Ma'am!</h2>
-    <p>
-      May your day be filled with smiles, flowers, wonderful memories
-      and all the happiness you deserve. Thank you for being the light
-      that guides us. 💗
-    </p>
-    <button class="close" onclick="closeWish()">Close ♥</button>
-  </div>
-</div>
-
-<canvas id="confetti-canvas"></canvas>
-
-<script>
-/* ---------------- modal + confetti (canvas based, smooth) ---------------- */
-const canvas = document.getElementById('confetti-canvas');
-const ctx = canvas.getContext('2d');
-function resizeCanvas(){canvas.width=innerWidth;canvas.height=innerHeight}
-resizeCanvas();
-addEventListener('resize',resizeCanvas);
-
-let particles=[];
-const colors=['#e86b88','#d9ae6b','#8f9bb2','#ffffff','#f7b6c5'];
-const shapes=['♥','✦','•','🌸'];
-
-function spawnConfetti(count=90){
-  for(let i=0;i<count;i++){
-    particles.push({
-      x:Math.random()*canvas.width,
-      y:-20-Math.random()*200,
-      vx:(Math.random()-.5)*2,
-      vy:2+Math.random()*3,
-      rot:Math.random()*360,
-      vr:(Math.random()-.5)*8,
-      size:10+Math.random()*14,
-      color:colors[Math.floor(Math.random()*colors.length)],
-      shape:shapes[Math.floor(Math.random()*shapes.length)],
-      life:0,
-      maxLife:220+Math.random()*140
-    });
-  }
-  if(!animating){animating=true;requestAnimationFrame(tick)}
-}
-
-let animating=false;
-function tick(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life++;
-    ctx.save();
-    ctx.translate(p.x,p.y);
-    ctx.rotate(p.rot*Math.PI/180);
-    ctx.globalAlpha=Math.max(0,1-p.life/p.maxLife);
-    ctx.fillStyle=p.color;
-    ctx.font=p.size+'px sans-serif';
-    ctx.textAlign='center';
-    ctx.fillText(p.shape,0,0);
-    ctx.restore();
-  });
-  particles=particles.filter(p=>p.life<p.maxLife && p.y<canvas.height+40);
-  if(particles.length>0){
-    requestAnimationFrame(tick);
-  }else{
-    animating=false;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-  }
-}
-
-function openWish(){
-  document.getElementById('modal').classList.add('show');
-  spawnConfetti(100);
-}
-function closeWish(){
-  document.getElementById('modal').classList.remove('show');
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWish()});
-
-/* ---------------- ambient floating balloons ---------------- */
-const balloonField=document.getElementById('balloonField');
-const balloonColors=['#e86b88','#f7b6c5','#d9ae6b','#8fae7c'];
-function makeBalloon(){
-  const b=document.createElement('div');
-  b.className='balloon';
-  const left=Math.random()*100;
-  const dur=14+Math.random()*10;
-  const size=34+Math.random()*26;
-  b.style.left=left+'vw';
-  b.style.width=size+'px';
-  b.style.height=(size*1.25)+'px';
-  b.style.background=balloonColors[Math.floor(Math.random()*balloonColors.length)];
-  b.style.animationDuration=dur+'s';
-  balloonField.appendChild(b);
-  setTimeout(()=>b.remove(),dur*1000);
-}
-for(let i=0;i<6;i++) setTimeout(makeBalloon,i*1800);
-setInterval(makeBalloon,3200);
-
-/* ---------------- scroll reveal ---------------- */
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* ---------------- jokes ---------------- */
-const jokes=[
-  "Why did the teacher wear sunglasses to school? Because her students were too bright! 😎",
-  "Ma'am, aap toh syllabus se bhi zyada thorough ho — kabhi khatam hi nahi hoti aapki care!",
-  "Teachers don't retire, they just lose their appeal... said no student about Ritu Ma'am, ever.",
-  "Why was the math book sad on its birthday? Too many problems. Unlike you, Ma'am — zero problems, only solutions!",
-  "Behind every successful student is a teacher who secretly checked WhatsApp for 'assignment kal kar dunga' excuses — and still smiled.",
-  "Ma'am, you're proof that 'strict but sweet' is a real combo, like chai with extra sugar."
-];
-let jokeIndex=0;
-const jokeText=document.getElementById('jokeText');
-const jokeNum=document.getElementById('jokeNum');
-document.getElementById('jokeTotal').textContent=jokes.length;
-function showJoke(){
-  jokeText.style.opacity=0;
-  setTimeout(()=>{
-    jokeText.textContent=jokes[jokeIndex];
-    jokeNum.textContent=jokeIndex+1;
-    jokeText.style.opacity=1;
-  },180);
-}
-function nextJoke(){ jokeIndex=(jokeIndex+1)%jokes.length; showJoke(); }
-function prevJoke(){ jokeIndex=(jokeIndex-1+jokes.length)%jokes.length; showJoke(); }
-jokeText.style.transition='opacity .18s';
-showJoke();
-
-/* ---------------- memory book (flip cards) ---------------- */
-const memories=[
-  {emoji:'📘',text:'Thank you for making even the hardest chapter feel simple.'},
-  {emoji:'🌱',text:'Thank you for believing in us before we believed in ourselves.'},
-  {emoji:'🕰️',text:'Thank you for the extra minutes you always gave, and never counted.'},
-  {emoji:'🎯',text:'Thank you for pushing us gently toward our best work.'},
-  {emoji:'🤍',text:'Thank you for simply being you — patient, kind, unforgettable.'}
-];
-const strip=document.getElementById('memoryStrip');
-memories.forEach((m,i)=>{
-  const card=document.createElement('div');
-  card.className='mem-card';
-  card.innerHTML=`
-    <div class="mem-inner">
-      <div class="mem-face mem-front">
-        <div class="num">0${i+1}</div>
-        <div class="emoji">${m.emoji}</div>
-        <div class="tap">Tap to open</div>
+    <nav class="site-nav" data-testid="site-navigation">
+      <a class="logo" href="#home" data-testid="home-logo-link">🌷 Happy Birthday<span>♥</span></a>
+      <button class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-testid="mobile-menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" data-testid="navigation-links">
+        <a href="#home">Home</a><a href="#about">About You</a><a href="#gallery">Photos</a>
+        <a href="#wishes">Wishes</a><a href="#jokes">Jokes</a><a href="#celebrate">Celebration</a>
       </div>
-      <div class="mem-face mem-back"><p>${m.text}</p></div>
-    </div>`;
-  card.addEventListener('click',()=>card.classList.toggle('flipped'));
-  strip.appendChild(card);
-});
-</script>
-</body>
+      <a class="nav-button" href="#wishes">For You <span>♥</span></a>
+    </nav>
+
+    <main>
+      <section class="hero" id="home" data-testid="hero-section">
+        <div class="hero-copy">
+          <div class="eyebrow">A special day for a special teacher</div>
+          <h1>Happy<br /><span>Birthday</span></h1>
+          <div class="script-text">Dear Ritu Ma'am ♡</div>
+          <p>Thank you for being more than just a teacher. You inspire, guide, encourage and make learning a beautiful journey. Today is all about celebrating <strong>you</strong>.</p>
+          <button class="pink-button" id="hero-wish-button" type="button" data-testid="hero-wish-button">🎁 Open Your Birthday Wish</button>
+        </div>
+        <div class="hero-photo-card" data-testid="hero-photo-card">
+          <div class="photo-frame">
+            <img class="photo-image" src="ritu-1.jpeg" alt="Ritu Ma'am smiling" />
+            <div class="photo-fallback"><span>🌷</span><strong>Ritu Ma'am smiling</strong><small>Photo coming soon</small></div>
+          </div>
+          <div class="photo-caption">📚 The best teachers leave footprints in our hearts.</div>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="about" data-testid="about-section">
+        <div class="section-intro reveal"><div class="eyebrow">Why you are special</div><h2>You are more than a teacher.</h2><p>Your kindness, patience and guidance make a difference every single day.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><div class="feature-icon">📖</div><h3>A Wonderful Teacher</h3><p>You make even difficult lessons feel possible and give every student a reason to keep trying.</p></article>
+          <article class="feature-card reveal"><div class="feature-icon">💗</div><h3>A Patient Guide</h3><p>Your patience and understanding create a place where everyone can learn, grow and ask questions.</p></article>
+          <article class="feature-card reveal"><div class="feature-icon">✨</div><h3>An Inspiration</h3><p>You teach confidence, kindness and the courage to dream along with every subject.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="wishes" data-testid="wishes-section">
+        <div class="section-intro reveal"><div class="eyebrow">Birthday wishes</div><h2>Wishing you a beautiful year ahead.</h2><p>May the happiness you bring to others return to you a hundred times over.</p></div>
+        <div class="wishes-layout">
+          <div class="wish-list reveal"><h3>My wishes for you 🌸</h3><div class="wish-row">♥ <span>Joy &amp; happiness every day</span></div><div class="wish-row">♥ <span>Good health and peaceful moments</span></div><div class="wish-row">♥ <span>Success in everything you do</span></div><div class="wish-row">♥ <span>Beautiful memories with loved ones</span></div><div class="wish-row">♥ <span>Every dream coming true</span></div></div>
+          <div class="note-card reveal"><h3>Happy Birthday, Ritu Ma'am! 💐</h3><p>On your special day, I just want to say thank you. Thank you for every lesson, every word of encouragement, every smile and every little moment that made a difference. May your birthday be as wonderful as the lives you touch.</p><div class="signature">With lots of respect &amp; love ♡</div></div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery" data-testid="gallery-section">
+        <div class="section-intro reveal"><div class="eyebrow">A few frames</div><h2>Ritu Ma'am 💕</h2><p>Every picture, a reason to smile.</p></div>
+        <div class="gallery-grid">
+          <figure class="gallery-frame reveal"><div class="photo-frame"><img class="photo-image" src="ritu-1.jpeg" alt="Ritu Ma'am smiling" /><div class="photo-fallback"><span>✨</span><strong>Ritu Ma'am smiling</strong><small>Photo coming soon</small></div></div><figcaption>Always graceful ✨</figcaption></figure>
+          <figure class="gallery-frame reveal"><div class="photo-frame"><img class="photo-image" src="ritu-2.jpeg" alt="Ritu Ma'am at a celebration" /><div class="photo-fallback"><span>🎉</span><strong>Ritu Ma'am at a celebration</strong><small>Photo coming soon</small></div></div><figcaption>Celebration mode 🎉</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="jokes" data-testid="jokes-section">
+        <div class="section-intro reveal"><div class="eyebrow">Because birthdays need giggles too</div><h2>A joke for you, Ma'am 😄</h2><p>Purely for entertainment — please don't deduct marks for these.</p></div>
+        <div class="joke-box reveal" data-testid="jokes-card"><div class="joke-tag">Joke <span id="joke-number">1</span> / <span id="joke-total">12</span></div><p class="joke-text" id="joke-text" data-testid="joke-text"></p><div class="joke-nav"><button class="dark-button" id="previous-joke-button" type="button">← Previous</button><button class="dark-button" id="next-joke-button" type="button">Next Joke →</button></div></div>
+      </section>
+
+      <section class="section" id="memories" data-testid="memories-section">
+        <div class="section-intro reveal"><div class="eyebrow">A little memory book</div><h2>Tap a card to open it.</h2><p>Five small thank-yous, one unforgettable teacher.</p></div>
+        <div class="memory-strip" id="memory-book" data-testid="memory-book"></div>
+      </section>
+
+      <section class="section section--celebrate" id="celebrate" data-testid="celebration-section"><div class="celebrate-card reveal"><h2>A Little Celebration Just For You! 🎂</h2><p>Take a moment, make a wish and enjoy your special day.</p><button class="pink-button" id="celebration-wish-button" type="button">▶ Play Birthday Surprise</button></div></section>
+    </main>
+
+    <footer>Made with 💗 specially for an amazing teacher.<br /><strong>Happy Birthday, Ritu Ma'am!</strong></footer>
+    <div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
+    <div class="modal" id="wish-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-box"><div class="modal-emoji">🎂🌷✨</div><h2 id="modal-title">Happy Birthday, Ritu Ma'am!</h2><p>May your day be filled with smiles, flowers, wonderful memories and all the happiness you deserve. Thank you for being the light that guides us. 💗</p><button class="dark-button" id="modal-close-button" type="button">Close ♥</button></div></div>
+  </body>
 </html>

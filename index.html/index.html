@@ -120,26 +120,428 @@ h1 span{color:var(--pink)}
 }
 @media(max-width:700px){.gallery{grid-template-columns:1fr}}
 
-/* ---------- jokes section ---------- */
-.joke-box{
-  max-width:720px;margin:auto;background:white;border-radius:28px;
-  padding:44px;text-align:center;box-shadow:0 18px 50px rgba(50,35,45,.1);
-  border:1px solid #f6dbe3;position:relative
-}
-.joke-box .tag{color:var(--pink);letter-spacing:2px;text-transform:uppercase;font-size:12px;font-weight:600}
-.joke-box p{font-family:"Cormorant Garamond",serif;font-size:26px;line-height:1.5;margin:18px 0;min-height:110px;display:flex;align-items:center;justify-content:center}
-.joke-nav{display:flex;gap:14px;justify-content:center;margin-top:10px}
-.joke-btn{
-  background:var(--navy);color:#fff;border:0;padding:12px 24px;border-radius:30px;
-  cursor:pointer;font:inherit;font-size:14px;transition:.25s
-}
-.joke-btn:hover{background:var(--pink);transform:translateY(-2px)}
-.floating{
-  position:absolute;bottom:18px;left:18px;right:18px;
-  background:rgba(16,26,45,.88);color:white;padding:13px 17px;border-radius:16px;
-  font-size:12px;backdrop-filter:blur(10px)
+/* ================================
+   ADVANCED JOKE SECTION
+================================ */
+
+#jokes {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(232, 107, 136, .16), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(217, 174, 107, .12), transparent 28%),
+    var(--navy, #101a2d);
+  color: #fff;
 }
 
+/* Decorative glow */
+#jokes::before,
+#jokes::after {
+  position: absolute;
+  content: "";
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+#jokes::before {
+  top: -100px;
+  left: -80px;
+  background: rgba(232, 107, 136, .18);
+}
+
+#jokes::after {
+  right: -100px;
+  bottom: -100px;
+  background: rgba(217, 174, 107, .14);
+}
+
+/* ---------- Section title ---------- */
+
+#jokes .section-title {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+#jokes .section-title .small {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: #f3a2b5;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#jokes .section-title .small::before,
+#jokes .section-title .small::after {
+  width: 28px;
+  height: 2px;
+  content: "";
+  background: currentColor;
+  border-radius: 20px;
+}
+
+#jokes .section-title h2 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+
+#jokes .section-title p {
+  max-width: 600px;
+  margin: 16px auto 0;
+  color: rgba(255,255,255,.68);
+  font-size: 15px;
+}
+
+/* ---------- Joke box ---------- */
+
+#jokes .joke-box {
+  position: relative;
+  z-index: 2;
+  width: min(720px, 100%);
+  margin: auto;
+  padding: 45px;
+  overflow: hidden;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.98),
+      rgba(255,244,247,.96)
+    );
+
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 30px;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.25),
+    0 0 0 1px rgba(255,255,255,.08);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+#jokes .joke-box:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.3),
+    0 0 45px rgba(232,107,136,.12);
+}
+
+/* Decorative corner */
+
+#jokes .joke-box::before {
+  position: absolute;
+  top: -55px;
+  right: -55px;
+  width: 140px;
+  height: 140px;
+  content: "😄";
+  display: grid;
+  place-items: center;
+  background: rgba(232,107,136,.08);
+  border-radius: 50%;
+  font-size: 42px;
+  transform: rotate(10deg);
+}
+
+/* ---------- Joke tag ---------- */
+
+#jokes .joke-box .tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+
+  color: var(--pink, #e86b88);
+  background: rgba(232,107,136,.1);
+
+  border: 1px solid rgba(232,107,136,.15);
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#jokes .joke-box .tag span {
+  color: #c84363;
+}
+
+/* ---------- Joke text ---------- */
+
+#jokes .joke-box p {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 120px;
+  margin: 30px 0;
+
+  color: #20202a;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(23px, 3vw, 30px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Quote marks */
+
+#jokes .joke-box p::before {
+  position: absolute;
+  top: -35px;
+  left: 0;
+
+  content: "“";
+
+  color: rgba(232,107,136,.18);
+
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 1;
+}
+
+#jokes .joke-box p::after {
+  position: absolute;
+  right: 0;
+  bottom: -55px;
+
+  content: "”";
+
+  color: rgba(232,107,136,.18);
+
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 1;
+}
+
+/* ---------- Navigation ---------- */
+
+#jokes .joke-nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+/* ---------- Buttons ---------- */
+
+#jokes .joke-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-width: 150px;
+  padding: 13px 22px;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  color: #fff;
+  background: var(--navy, #101a2d);
+
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 999px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 750;
+
+  box-shadow: 0 10px 25px rgba(16,26,45,.18);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+#jokes .joke-btn::before {
+  position: absolute;
+  inset: 0;
+
+  content: "";
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255,255,255,.25),
+      transparent 75%
+    );
+
+  transform: translateX(-130%);
+  transition: transform .55s ease;
+}
+
+#jokes .joke-btn:hover {
+  background: var(--pink, #e86b88);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(232,107,136,.3);
+}
+
+#jokes .joke-btn:hover::before {
+  transform: translateX(130%);
+}
+
+#jokes .joke-btn:active {
+  transform: translateY(-1px) scale(.98);
+}
+
+#jokes .joke-btn:focus-visible {
+  outline: 3px solid rgba(232,107,136,.35);
+  outline-offset: 4px;
+}
+
+/* ---------- Floating message ---------- */
+
+#jokes .floating {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+
+  padding: 13px 17px;
+
+  color: #fff;
+  background: rgba(16,26,45,.88);
+
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+
+  font-size: 12px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* ---------- Reveal animation ---------- */
+
+#jokes .reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+#jokes .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+  #jokes {
+    padding: 80px 16px;
+  }
+
+  #jokes .section-title {
+    margin-bottom: 35px;
+  }
+
+  #jokes .section-title h2 {
+    font-size: 36px;
+  }
+
+  #jokes .section-title p {
+    font-size: 14px;
+  }
+
+  #jokes .joke-box {
+    padding: 32px 20px;
+    border-radius: 24px;
+  }
+
+  #jokes .joke-box p {
+    min-height: 170px;
+    margin: 28px 0;
+    font-size: 22px;
+  }
+
+  #jokes .joke-box p::before {
+    left: -5px;
+    font-size: 70px;
+  }
+
+  #jokes .joke-box p::after {
+    right: -5px;
+    font-size: 70px;
+  }
+
+  #jokes .joke-nav {
+    flex-direction: column;
+  }
+
+  #jokes .joke-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Small phones ---------- */
+
+@media (max-width: 380px) {
+
+  #jokes .section-title h2 {
+    font-size: 31px;
+  }
+
+  #jokes .joke-box {
+    padding: 28px 16px;
+  }
+
+  #jokes .joke-box p {
+    font-size: 20px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #jokes *,
+  #jokes *::before,
+  #jokes *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  #jokes .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
 .section{padding:90px 6%;position:relative;z-index:2}
 .dark{
   background:linear-gradient(135deg,var(--navy),#1e2c46);
@@ -540,18 +942,31 @@ const jokes=[
   "Behind every successful student is a teacher who secretly checked WhatsApp for 'assignment kal kar dunga' excuses — and still smiled.",
   "Ma'am, you're proof that 'strict but sweet' is a real combo, like chai with extra sugar."
 ];
-let jokeIndex=0;
-const jokeText=document.getElementById('jokeText');
-const jokeNum=document.getElementById('jokeNum');
-document.getElementById('jokeTotal').textContent=jokes.length;
-function showJoke(){
-  jokeText.style.opacity=0;
-  setTimeout(()=>{
-    jokeText.textContent=jokes[jokeIndex];
-    jokeNum.textContent=jokeIndex+1;
-    jokeText.style.opacity=1;
-  },180);
-}
+const jokes = [
+  "Why did the teacher bring a ladder to school? Because the students were reaching new heights! 😄",
+
+  "Ma'am, aap itni great teacher hain ki Google bhi aapse 'How to teach?' search karta hoga! 😂",
+
+  "Why was the school calendar happy today? Because it was your birthday! 🎂",
+
+  "Ma'am, homework se students darte hain, lekin aapki smile dekh kar homework bhi easy lagta hai! 😄",
+
+  "What is a teacher's favorite birthday gift? A day without checking homework! 😂🎁",
+
+  "Ma'am, aap attendance leti hain, marks deti hain, aur birthday par cake bhi deserve karti hain! 🎂❤️",
+
+  "Why did the student bring a cake to class? Because today the lesson is 'How to celebrate!' 😋",
+
+  "Ma'am, agar kindness ek subject hota, to aap usmein full marks leti! 💯💗",
+
+  "Teacher: Why are you late? Student: Ma'am, I was following my dreams. Teacher: Then why are you in my classroom? 😂",
+
+  "Ma'am, aapki class mein ek cheez kabhi late nahi hoti — aapki smile! 😊",
+
+  "Birthday rule for today: No homework, no tests, only cake! 🎂😎",
+
+  "Ritu Ma'am, you are not getting older. You are just becoming more legendary! ✨🎉"
+];
 function nextJoke(){ jokeIndex=(jokeIndex+1)%jokes.length; showJoke(); }
 function prevJoke(){ jokeIndex=(jokeIndex-1+jokes.length)%jokes.length; showJoke(); }
 jokeText.style.transition='opacity .18s';

@@ -789,21 +789,83 @@ canvas#confetti-canvas{position:fixed;inset:0;z-index:60;pointer-events:none}
   </div>
 </section>
 
-<section class="section dark" id="jokes">
-  <div class="section-title reveal">
-    <div class="small">Because birthdays need giggles too</div>
-    <h2>A joke for you, Ma'am 😄</h2>
-    <p>Purely for entertainment — please don't deduct marks for these.</p>
-  </div>
-  <div class="joke-box reveal">
-    <div class="tag">Joke <span id="jokeNum">1</span> / <span id="jokeTotal"></span></div>
-    <p id="jokeText"></p>
-    <div class="joke-nav">
-      <button class="joke-btn" onclick="prevJoke()">← Previous</button>
-      <button class="joke-btn" onclick="nextJoke()">Next Joke →</button>
+ <section class="section dark" id="jokes">
+
+    <div class="section-title reveal">
+
+      <div class="small">
+        Because birthdays need giggles too 😄
+      </div>
+
+      <h2>
+        A Joke For You, Ma'am 💗
+      </h2>
+
+      <p>
+        Thodi English, thodi Hindi — aur bahut saari masti! 😂
+      </p>
+
     </div>
-  </div>
-</section>
+
+
+    <div class="joke-box reveal">
+
+      <!-- Joke Counter -->
+
+      <div class="tag">
+        Joke
+        <span id="jokeNum">1</span>
+        /
+        <span id="jokeTotal">12</span>
+      </div>
+
+
+      <!-- Joke Icon -->
+
+      <div class="joke-icon">
+        😂
+      </div>
+
+
+      <!-- Joke Text -->
+
+      <p id="jokeText">
+        Ma'am, aap itni achhi teacher hain ki Google bhi bole —
+        "Mujhe bhi inse padhna hai!" 😂
+      </p>
+
+
+      <!-- Buttons -->
+
+      <div class="joke-nav">
+
+        <button
+          class="joke-btn"
+          id="previousBtn"
+          type="button">
+          ← Previous
+        </button>
+
+        <button
+          class="joke-btn"
+          id="nextBtn"
+          type="button">
+          Next Joke →
+        </button>
+
+      </div>
+
+
+      <!-- Hint -->
+
+      <div class="joke-hint">
+        💡 Next button dabao aur ek naya joke dekho!
+      </div>
+
+    </div>
+
+  </section>
+
 
 <section class="section" id="memories">
   <div class="section-title reveal">
@@ -942,34 +1004,174 @@ const jokes=[
   "Behind every successful student is a teacher who secretly checked WhatsApp for 'assignment kal kar dunga' excuses — and still smiled.",
   "Ma'am, you're proof that 'strict but sweet' is a real combo, like chai with extra sugar."
 ];
+/* =====================================
+   BIRTHDAY JOKES
+===================================== */
+
 const jokes = [
-  "Why did the teacher bring a ladder to school? Because the students were reaching new heights! 😄",
+  "Ma'am, aap itni achhi teacher hain ki Google bhi bole — 'Mujhe bhi inse padhna hai!' 😂",
 
-  "Ma'am, aap itni great teacher hain ki Google bhi aapse 'How to teach?' search karta hoga! 😂",
+  "Ma'am, aaj homework nahi hai. Aaj sirf cake-work hai! 🎂😄",
 
-  "Why was the school calendar happy today? Because it was your birthday! 🎂",
+  "Teacher ki smile attendance se bhi powerful hoti hai — ek smile aur poori class present! 😂",
 
-  "Ma'am, homework se students darte hain, lekin aapki smile dekh kar homework bhi easy lagta hai! 😄",
+  "Ma'am, aapki class mein difficult chapter bhi easy lagta hai. Aap teacher kam, magic teacher zyada hain! ✨",
 
-  "What is a teacher's favorite birthday gift? A day without checking homework! 😂🎁",
+  "Aaj ka birthday rule: No homework, no test — only cake and celebration! 🎂🎉",
 
-  "Ma'am, aap attendance leti hain, marks deti hain, aur birthday par cake bhi deserve karti hain! 🎂❤️",
+  "Ma'am, agar kindness ek subject hota, toh aap usmein 100/100 laati! 💯❤️",
 
-  "Why did the student bring a cake to class? Because today the lesson is 'How to celebrate!' 😋",
+  "Student: Ma'am, homework kab karna hai? Ma'am: Kal. Student: Birthday ke baad wala kal? 😂",
 
-  "Ma'am, agar kindness ek subject hota, to aap usmein full marks leti! 💯💗",
+  "Ma'am, aap marks bhi deti hain aur motivation bhi. Isliye aap truly full package hain! 😄",
 
-  "Teacher: Why are you late? Student: Ma'am, I was following my dreams. Teacher: Then why are you in my classroom? 😂",
+  "Why did the student bring a cake to class? Kyunki aaj lesson hai — How to celebrate! 🎂😂",
 
-  "Ma'am, aapki class mein ek cheez kabhi late nahi hoti — aapki smile! 😊",
+  "Ma'am, aapki smile dekhkar Monday bhi Sunday jaisa feel hota hai! 😊",
 
-  "Birthday rule for today: No homework, no tests, only cake! 🎂😎",
+  "Birthday par ek hi important question hai — Cake ka first piece kisko milega? 😋🎂",
 
-  "Ritu Ma'am, you are not getting older. You are just becoming more legendary! ✨🎉"
+  "Ritu Ma'am, age sirf number hai. But your teaching is always legendary! ✨🎉"
 ];
-function nextJoke(){ jokeIndex=(jokeIndex+1)%jokes.length; showJoke(); }
-function prevJoke(){ jokeIndex=(jokeIndex-1+jokes.length)%jokes.length; showJoke(); }
-jokeText.style.transition='opacity .18s';
+
+
+/* =====================================
+   VARIABLES
+===================================== */
+
+let currentJoke = 0;
+
+const jokeText = document.getElementById("jokeText");
+const jokeNum = document.getElementById("jokeNum");
+const jokeTotal = document.getElementById("jokeTotal");
+
+const previousBtn = document.getElementById("previousBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+
+/* =====================================
+   TOTAL JOKES
+===================================== */
+
+jokeTotal.textContent = jokes.length;
+
+
+/* =====================================
+   SHOW JOKE
+===================================== */
+
+function showJoke() {
+
+  jokeText.classList.remove("joke-change");
+
+  void jokeText.offsetWidth;
+
+  jokeText.classList.add("joke-change");
+
+  jokeText.textContent = jokes[currentJoke];
+
+  jokeNum.textContent = currentJoke + 1;
+}
+
+
+/* =====================================
+   NEXT JOKE
+===================================== */
+
+function nextJoke() {
+
+  currentJoke++;
+
+  if (currentJoke >= jokes.length) {
+    currentJoke = 0;
+  }
+
+  showJoke();
+}
+
+
+/* =====================================
+   PREVIOUS JOKE
+===================================== */
+
+function prevJoke() {
+
+  currentJoke--;
+
+  if (currentJoke < 0) {
+    currentJoke = jokes.length - 1;
+  }
+
+  showJoke();
+}
+
+
+/* =====================================
+   BUTTON CLICK
+===================================== */
+
+nextBtn.addEventListener("click", nextJoke);
+
+previousBtn.addEventListener("click", prevJoke);
+
+
+/* =====================================
+   KEYBOARD
+===================================== */
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "ArrowRight") {
+    nextJoke();
+  }
+
+  if (event.key === "ArrowLeft") {
+    prevJoke();
+  }
+
+});
+
+
+/* =====================================
+   REVEAL ANIMATION
+===================================== */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+const observer =
+  new IntersectionObserver(
+    function(entries) {
+
+      entries.forEach(function(entry) {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("is-visible");
+
+          observer.unobserve(entry.target);
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+
+revealElements.forEach(function(element) {
+
+  observer.observe(element);
+
+});
+
+
+/* =====================================
+   START
+===================================== */
+
 showJoke();
 
 /* ---------------- memory book (flip cards) ---------------- */
